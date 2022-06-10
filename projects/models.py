@@ -10,8 +10,8 @@ class Project(models.Model):
 
     created_date = models.DateTimeField(auto_now_add=True)
     uuid = models.UUIDField(
-        primary_key=True,
         default=uuid.uuid4,
+        primary_key=True,
         editable=False,
     )
 

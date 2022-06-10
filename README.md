@@ -19,8 +19,10 @@ The users can
 * Registration/Authentification
 * Search by few fields (programmer, project, tecnology)
 * Pagination
+* CRUD
+* Rest API
 * Comments/Votes
-* Inner Messages with Inbox
+* Inner Messages with Private Inbox
     
 ## Technologies
 The project is written on **Python: 3.8/Django: 4.0** with implementation of:

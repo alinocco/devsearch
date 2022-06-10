@@ -2,29 +2,35 @@
 
 The platform for programmers to share their projects. 
 
+## Table of contents
+* [General Info](#general-info)
+* [Functionality](#functionality)
+* [Technologies](#technologies)
+* [Setup](#setup)
+
+## General Info
 The users can
-* Tell about their projects
-* Give feedback on others'
-* Contact to other programmers
-* Search for projects/programmers by technologies and other keywords
+1. Tell about their projects
+2. Give feedback on others'
+3. Contact to other programmers
+4. Search for projects/programmers by technologies and other keywords
     
 ## Functionality
-
-...
+* Registration/Authentification
+* Search by few fields (programmer, project, tecnology)
+* Pagination
+* Comments/Votes
+* Inner Messages with Inbox
     
-## Stack
-The project is written on **Python/Django** with implementation of:
-    * **poetry** - virtual environment and dependencies' manager
+## Technologies
+The project is written on **Python: 3.8/Django: 4.0** with implementation of:
+* **Poetry: 1.1.12** - virtual environment and dependencies' manager
     
-### Resources
-
-The project is done following **Full Django Course by Dennis Ivy** with some new changes and features.
+## Resources
+The project is done following [**Full Django Course by Dennis Ivy**](https://www.udemy.com/course/python-django-2021-complete-course/) with some new changes and features.
 
 Updates:
-    * poetry instead of virtualenv
+* poetry instead of virtualenv
     
-### My Notes
-
-Link to the Docs:
-
-...
+## My Notes
+[My Conspect](https://docs.google.com/document/d/10IwWR-TRoy1c1zjYlUVPUaUgIQkxy2mqUJnwSmlAQ10/edit#)

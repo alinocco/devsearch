@@ -35,4 +35,4 @@ Updates:
 * poetry instead of virtualenv
     
 ## My Notes
-[My Conspect](https://docs.google.com/document/d/10IwWR-TRoy1c1zjYlUVPUaUgIQkxy2mqUJnwSmlAQ10/edit#)
+While watching the lectures, I was taking [notes](https://docs.google.com/document/d/10IwWR-TRoy1c1zjYlUVPUaUgIQkxy2mqUJnwSmlAQ10/edit#)(click to follow).

@@ -17,17 +17,17 @@ The users can
 4. Search for projects/programmers
     
 ## Functionality
-* Registration/Authentification
-* Search by few fields (programmer, project, tecnology)
-* Pagination
-
+* Basic Django Overview
+* Database Design and Models
 * CRUD
-* Rest API
+* Static Files
+* User Registration & Authentification
+* Search
+* Pagination
+* API on Django Rest Framework
+* Deployment
 
-* Comments/Votes
-* Inner Messages with Private Inbox
-
-**To add:**
+## Plans
 * Forum based on [Python Django 7 Hour Course by Dennis Ivy](https://youtu.be/PtQiiknWUcI)
 * Video Streaming Room based on [Building A Video Chat Application by Dennis Ivy](https://youtu.be/1cYKoSe3MN4)
     
@@ -66,5 +66,6 @@ The project is done following [**Full Django Course by Dennis Ivy**](https://www
 
 Updates:
 * poetry instead of virtualenv
+* work with Git and Github
 
 While watching the lectures, I was taking [notes](https://docs.google.com/document/d/10IwWR-TRoy1c1zjYlUVPUaUgIQkxy2mqUJnwSmlAQ10/edit#)(click to follow).

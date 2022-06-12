@@ -87,9 +87,8 @@ settings/local.py
 *.sublime*
 .idea
 
-# Secret keys
-service_accounts.json
-setenv.sh
-
 # Mac file
 .DS_Store
+
+# Database file
+db.sqlite3

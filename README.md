@@ -21,7 +21,7 @@ The users can
 * Database Design and Models
 * CRUD
 * Static Files
-* Connect to Frontend and UIkit
+* Connect Frontend Files and UIkit
 * User Registration & Authentification
 * Search
 * Pagination

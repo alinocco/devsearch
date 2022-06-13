@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 import uuid
 
@@ -12,6 +13,7 @@ class Project(models.Model):
 
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
+    image = models.ImageField(default="default.jpg", null=True, blank=True)
     demo_link = models.CharField(max_length=2000, null=True, blank=True)
     source_link = models.CharField(max_length=2000, null=True, blank=True)
 

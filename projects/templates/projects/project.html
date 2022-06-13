@@ -1,7 +1,7 @@
 {% extends 'main.html' %} {% block content %}
-<h1>Project {{project.title}}</h1>
+<h1>{{project.title}}</h1>
 <br />
-
+<img src="{{project.image.url}}" style="max-width: 500px" />
 <hr />
 {% for tag in project.tags.all %}
 <span>{{tag.name}}</span>

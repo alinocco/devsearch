@@ -8,6 +8,7 @@ authors = ["Alinocco <alinoco.dia@gmail.com>"]
 python = "^3.8"
 Django = "^4.0.5"
 Pillow = "^9.1.1"
+whitenoise = "^6.2.0"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.6.0"

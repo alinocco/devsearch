@@ -21,6 +21,7 @@ The users can
 * Database Design and Models
 * CRUD
 * Static Files
+* Connect to Frontend and UIkit
 * User Registration & Authentification
 * Search
 * Pagination
@@ -34,6 +35,8 @@ The users can
 ## Technologies
 The project is written on **Python: 3.8/Django: 4.0** with implementation of:
 * **Poetry: 1.1.12** - virtual environment and dependencies' manager
+* **Pillow: 9.1.1** - Python library for processing images
+* **Whitenoise: 6.2.0** - Serve our static files
 
 ## Setup
 1. Clone the repository by

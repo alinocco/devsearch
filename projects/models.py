@@ -2,6 +2,8 @@ from email.policy import default
 from django.db import models
 import uuid
 
+from users.models import Profile
+
 
 class Project(models.Model):
     """
@@ -11,9 +13,12 @@ class Project(models.Model):
         - Reviews
     """
 
+    owner = models.ForeignKey(
+        Profile, on_delete=models.SET_NULL, null=True, blank=True)
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField(default="default.jpg", null=True, blank=True)
+    image = models.ImageField(
+        upload_to="projects/", default="projects/default.jpg", null=True, blank=True)
     demo_link = models.CharField(max_length=2000, null=True, blank=True)
     source_link = models.CharField(max_length=2000, null=True, blank=True)
 

@@ -12,7 +12,7 @@ class Profile(models.Model):
     We use pre-build User for authentification and profile to share info among other users. 
     """
     user = models.OneToOneField(
-        User, on_delete=models.SET_NULL, null=True, blank=True)
+        User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=255, null=True, blank=True)
     email = models.CharField(max_length=255, null=True, blank=True)
     username = models.CharField(max_length=255, null=True, blank=True)
@@ -36,7 +36,7 @@ class Profile(models.Model):
     )
 
     def __str__(self):
-        return str(self.user.username)
+        return str(self.user)
 
 
 class Skill(models.Model):

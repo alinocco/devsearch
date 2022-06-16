@@ -11,7 +11,7 @@ def profiles(request):
 def profile(request, pk):
     profile = Profile.objects.get(uuid=pk)
 
-    top_skills = profile.skill_set.exclude(description__exact="")
+    top_skills = profile.skill_set.exclude(description="")
     other_skills = profile.skill_set.filter(description="")
 
     context = {'profile': profile, 'top_skills': top_skills,

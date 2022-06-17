@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .forms import CustomUserCreationForm
 
 from django.contrib.auth.models import User
 from .models import Profile
@@ -24,7 +25,32 @@ def profile(request, pk):
     return render(request, 'users/profile.html', context)
 
 
+def registerUser(request):
+    page = 'register'
+    form = CustomUserCreationForm()
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+
+            messages.success(request, "You've been registered!")
+
+            login(request, user)
+            return redirect('profiles')
+        else:
+            messages.error(
+                request, 'During registration, an error has occurred.')
+
+    context = {'page': page, 'form': form}
+    return render(request, 'users/login_register_form.html', context)
+
+
 def loginUser(request):
+    page = 'login'
+
     if request.user.is_authenticated:
         return redirect('profiles')
 
@@ -41,11 +67,12 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
-            redirect('profiles')
+            return redirect('profiles')
         else:
-            messages.error(request, 'Your username or password are incorrect.')
+            messages.error(request, "Your username or password is incorrect.")
 
-    return render(request, 'users/login_form.html')
+    context = {'page': page}
+    return render(request, 'users/login_register_form.html', context)
 
 
 @login_required

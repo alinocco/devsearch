@@ -78,5 +78,5 @@ def loginUser(request):
 @login_required
 def logoutUser(request):
     logout(request)
-    messages.error(request, "You've been logged out.")
+    messages.info(request, "You've been logged out.")
     return redirect('login')

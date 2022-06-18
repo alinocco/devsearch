@@ -77,8 +77,20 @@ def loginUser(request):
     return render(request, 'users/login_register_form.html', context)
 
 
-@login_required
+@login_required(login_url='login')
 def logoutUser(request):
     logout(request)
     messages.info(request, "You've been logged out.")
     return redirect('login')
+
+
+@login_required(login_url='login')
+def editAccount(request):
+    profile = request.user.profile
+
+    top_skills = profile.skill_set.exclude(description="")
+    other_skills = profile.skill_set.filter(description="")
+
+    context = {'profile': profile, 'top_skills': top_skills,
+               'other_skills': other_skills}
+    return render(request, 'users/edit_account.html', context)

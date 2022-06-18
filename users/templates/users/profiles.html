@@ -30,6 +30,7 @@
   <section class="devlist">
     <div class="container">
       <div class="grid grid--three">
+
         {% for profile in profiles %}
         <div class="column card">
           <div class="dev">
@@ -42,7 +43,7 @@
                 />
                 <div class="dev__meta">
                   <h3>{{profile.name}}</h3>
-                  <h5>{{profile.short_description}}</h5>
+                  <h5>{{profile.short_description|truncatechars:40}}</h5>
                 </div>
               </div>
               <p class="dev__info">{{profile.bio|slice:"150"}}</p>
@@ -57,6 +58,7 @@
           </div>
         </div>
         {% endfor %}
+
       </div>
     </div>
   </section>

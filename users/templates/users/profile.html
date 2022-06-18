@@ -16,38 +16,45 @@
             <ul class="dev__social">
               {% if profile.social_github %}
               <li>
-                <a
+                  <a
                   title="Github"
                   href="{{profile.social_github}}"
-                  target="_blank"
-                  ><i class="im im-github"></i
-                ></a>
+                  target="_blank">
+                      <i class="im im-github"></i>
+                  </a>
               </li>
-              {% endif %} {% if profile.social_linkedin %}
+              {% endif %} 
+              
+              {% if profile.social_linkedin %}
               <li>
-                <a
+                  <a
                   title="LinkedIn"
                   href="{{profile.social_linkedin}}"
-                  target="_blank"
-                  ><i class="im im-linkedin"></i
-                ></a>
+                  target="_blank">
+                      <i class="im im-linkedin"></i>
+                  </a>
               </li>
-              {% endif %} {% if profile.social_youtube %}
+              {% endif %} 
+              
+              {% if profile.social_youtube %}
               <li>
-                <a
+                  <a
                   title="Youtube"
                   href="{{profile.social_youtube}}"
-                  target="_blank"
-                  ><i class="im im-youtube"></i
-                ></a>
+                  target="_blank">
+                      <i class="im im-youtube"></i>
+                  </a>
               </li>
-              {% endif %} {% if profile.social_website %}
+              {% endif %} 
+              
+              {% if profile.social_website %}
               <li>
-                <a title="Personal Website" href="#" target="_blank"
-                  ><i class="im im-globe"></i
-                ></a>
+                  <a title="Personal Website" href="{{profile.social_website}}" target="_blank">
+                      <i class="im im-globe"></i>
+                  </a>
               </li>
               {% endif %}
+
             </ul>
             <a href="#" class="btn btn--sub btn--lg">Send Message</a>
           </div>
@@ -58,10 +65,6 @@
           <h3 class="devInfo__title">About Me</h3>
           <p class="devInfo__about">
             {{profile.bio}}
-            <br />
-            Amet consectetur adipisicing elit. Veritatis exercitationem ut quos
-            a placeat obcaecati? Architecto illum, atque delectus nemo dolorem
-            inventore ab facilis? Dolor placeat vel delectus ipsam ullam.
           </p>
         </div>
         <div class="devInfo">
@@ -70,7 +73,7 @@
             {% for skill in top_skills %}
             <div class="devSkill">
               <h4 class="devSkill__title">{{skill.name}}</h4>
-              <p class="devSkill__info">{{skill.description}}</p>
+              <p class="devSkill__info">{{skill.description|truncatechars:150}}</p>
             </div>
             {% endfor %}
             <h3 class="devInfo__subtitle">Other Skills</h3>

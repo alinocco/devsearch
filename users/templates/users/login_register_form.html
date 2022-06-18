@@ -21,7 +21,7 @@
 
       {% for field in form %}
       <div class="form__field">
-        <label for="formInput#text">{{field.label}}: </label>
+        <label for="formInput#text">{{field.label|title}}: </label>
         {{field}}
 
         {% for error in field.errors %}

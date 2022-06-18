@@ -37,6 +37,7 @@ The project is written on **Python: 3.8/Django: 4.0** with implementation of:
 * **Poetry: 1.1.12** - virtual environment and dependencies' manager
 * **Pillow: 9.1.1** - Python library for processing images
 * **Whitenoise: 6.2.0** - Serve our static files
+* **Django-Cleanup: 6.0.0** - Remove unused images, files etc.
 
 ## Setup
 1. Clone the repository by
@@ -70,5 +71,6 @@ The project is done following [**Full Django Course by Dennis Ivy**](https://www
 Updates:
 * poetry instead of virtualenv
 * work with Git and Github
+* troubleshoot issues with error messages
 
 While watching the lectures, I was taking [notes](https://docs.google.com/document/d/10IwWR-TRoy1c1zjYlUVPUaUgIQkxy2mqUJnwSmlAQ10/edit#)(click to follow).

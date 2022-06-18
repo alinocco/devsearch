@@ -17,14 +17,12 @@
     <!-- Dev Search UI -->
     <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
 
-    #FIXME: configure script
-    <script src="{% static 'uikit/app.js' %}"></script>
-
     <title>DevSearch - Connect with Developers!</title>
   </head>
   <body>
     {% include 'navbar.html'%} 
 
+    <!-- Errors -->
     {% if messages %}
       {% for message in messages %}
       <div class="alert alert--{{message.tags}}">
@@ -37,5 +35,8 @@
     {% block content %} 
     
     {% endblock content %}
+
+    <!-- Error Handling -->
+    <script src="{% static 'uikit/app.js' %}"></script>
   </body>
 </html>

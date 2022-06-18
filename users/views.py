@@ -60,16 +60,18 @@ def loginUser(request):
 
         try:
             user = User.objects.get(username=username)
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                messages.success(request, "You've been logged in!")
+                return redirect('profiles')
+            else:
+                messages.error(
+                    request, "Your password is incorrect.")
         except:
             messages.error(request, 'This user does not exist.')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('profiles')
-        else:
-            messages.error(request, "Your username or password is incorrect.")
 
     context = {'page': page}
     return render(request, 'users/login_register_form.html', context)

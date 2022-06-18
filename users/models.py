@@ -20,8 +20,8 @@ class Profile(models.Model):
     short_description = models.CharField(max_length=255, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
-    profile_image = models.ImageField(
-        upload_to="users/", default="users/user-default.png", null=True, blank=True)
+    image = models.ImageField(
+        upload_to="users/", default="users/user-default.webp", null=True, blank=True)
 
     social_github = models.CharField(max_length=255, null=True, blank=True)
     social_linkedin = models.CharField(max_length=255, null=True, blank=True)

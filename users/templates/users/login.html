@@ -3,50 +3,6 @@
 
 {% block content %} 
 
-{% if page == 'register' %}
-
-<!-- Page: Register -->
-<div class="auth">
-  <div class="card">
-    <div class="auth__header text-center">
-      <a href="/">
-        <img src="{% static 'images/icon.svg' %}" alt="icon" />
-      </a>
-      <h3>Account Registration</h3>
-      <p>Create a new developer account</p>
-    </div>
-
-    <form action="{% url 'register' %}" method="POST" class="form auth__form">
-      {% csrf_token %}
-
-      {% for field in form %}
-      <div class="form__field">
-        <label for="formInput#text">{{field.label|title}}: </label>
-        {{field}}
-
-        {% for error in field.errors %}
-        <p style="color: red;">{{error}}</p>
-        {% endfor %}
-
-      </div>
-      
-      
-
-      {% endfor %}
-
-      <div class="auth__actions">
-        <input class="btn btn--sub btn--lg" type="submit" value="Sign Up" />
-      </div>
-    </form>
-    <div class="auth__alternative">
-      <p>Already have an Account?</p>
-      <a href="{% url 'login' %}">Log In</a>
-    </div>
-  </div>
-</div>
-
-{% else %}
-
 <!-- Page: Login -->
 <div class="auth">
   <div class="card">
@@ -94,6 +50,5 @@
     </div>
   </div>
 </div>
-{% endif %} 
 
 {% endblock content %}

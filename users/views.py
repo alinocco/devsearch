@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ProfileForm
 
 from django.contrib.auth.models import User
 from .models import Profile
@@ -26,7 +26,6 @@ def profile(request, pk):
 
 
 def registerUser(request):
-    page = 'register'
     form = CustomUserCreationForm()
 
     if request.method == 'POST':
@@ -39,18 +38,16 @@ def registerUser(request):
             messages.success(request, "You've been registered!")
 
             login(request, user)
-            return redirect('profiles')
+            return redirect('edit-account')
         else:
             messages.error(
                 request, 'During registration, an error has occurred.')
 
-    context = {'page': page, 'form': form}
-    return render(request, 'users/login_register_form.html', context)
+    context = {'form': form}
+    return render(request, 'users/register.html', context)
 
 
 def loginUser(request):
-    page = 'login'
-
     if request.user.is_authenticated:
         return redirect('profiles')
 
@@ -73,8 +70,8 @@ def loginUser(request):
         except:
             messages.error(request, 'This user does not exist.')
 
-    context = {'page': page}
-    return render(request, 'users/login_register_form.html', context)
+    context = {}
+    return render(request, 'users/login.html', context)
 
 
 @login_required(login_url='login')
@@ -85,7 +82,7 @@ def logoutUser(request):
 
 
 @login_required(login_url='login')
-def editAccount(request):
+def viewAccount(request):
     profile = request.user.profile
 
     top_skills = profile.skill_set.exclude(description="")
@@ -93,4 +90,19 @@ def editAccount(request):
 
     context = {'profile': profile, 'top_skills': top_skills,
                'other_skills': other_skills}
-    return render(request, 'users/edit_account.html', context)
+    return render(request, 'users/account.html', context)
+
+
+@login_required(login_url='login')
+def editAccount(request):
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid:
+            form.save()
+            return redirect('account')
+
+    context = {'form': form}
+    return render(request, 'users/account_form.html', context)

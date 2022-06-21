@@ -10,12 +10,19 @@ from .forms import (
 )
 
 from django.contrib.auth.models import User
-from .models import Profile, Skill
+from .models import Profile
+
+from .utils import searchProfiles, paginateProfiles
 
 
 def profiles(request):
-    profiles = Profile.objects.all()
-    context = {'profiles': profiles}
+    profiles, search_query = searchProfiles(request)
+
+    custom_range, profiles = paginateProfiles(
+        request, profiles, results_per_page=6, pages_around=3)
+
+    context = {'profiles': profiles, 'query': search_query,
+               'custom_range': custom_range}
     return render(request, 'users/profiles.html', context)
 
 
@@ -124,6 +131,8 @@ def createSkill(request):
             skill = form.save(commit=False)
             skill.owner = profile
             skill.save()
+
+            messages.success(request, "Skill was created successfully!")
             return redirect('account')
 
     context = {'form': form}
@@ -140,6 +149,8 @@ def updateSkill(request, pk):
         form = SkillForm(request.POST, instance=skill)
         if form.is_valid:
             form.save()
+
+            messages.success(request, "Skill was updated successfully!")
             return redirect('account')
 
     context = {'form': form}
@@ -153,6 +164,8 @@ def deleteSkill(request, pk):
 
     if request.method == 'POST':
         skill.delete()
+
+        messages.success(request, "Skill was deleted successfully!")
         return redirect('account')
 
     context = {'object': skill}

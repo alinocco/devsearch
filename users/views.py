@@ -75,7 +75,7 @@ def loginUser(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, "You've been logged in!")
-                return redirect('profiles')
+                return redirect(request.GET['next'] if 'next' in request.GET else 'account')
             else:
                 messages.error(
                     request, "Your password is incorrect.")
@@ -132,7 +132,7 @@ def createSkill(request):
             skill.owner = profile
             skill.save()
 
-            messages.success(request, "Skill was created successfully!")
+            messages.success(request, "Your skill was created successfully!")
             return redirect('account')
 
     context = {'form': form}
@@ -150,7 +150,7 @@ def updateSkill(request, pk):
         if form.is_valid:
             form.save()
 
-            messages.success(request, "Skill was updated successfully!")
+            messages.success(request, "Your skill was updated successfully!")
             return redirect('account')
 
     context = {'form': form}
@@ -165,7 +165,7 @@ def deleteSkill(request, pk):
     if request.method == 'POST':
         skill.delete()
 
-        messages.success(request, "Skill was deleted successfully!")
+        messages.success(request, "Your skill was deleted successfully!")
         return redirect('account')
 
     context = {'object': skill}

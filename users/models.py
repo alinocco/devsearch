@@ -14,7 +14,7 @@ class Profile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=255, null=True, blank=True)
-    email = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(max_length=255, null=True, blank=True)
     username = models.CharField(max_length=255, null=True, blank=True)
 
     short_description = models.CharField(max_length=255, null=True, blank=True)
@@ -59,3 +59,28 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Message(models.Model):
+    sender = models.ForeignKey(
+        Profile, on_delete=models.SET_NULL, related_name='sent_messages', null=True, blank=True)
+    recipient = models.ForeignKey(
+        Profile, on_delete=models.SET_NULL, related_name='inbox_messages', null=True, blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(max_length=255, null=True, blank=True)
+    subject = models.CharField(max_length=255, null=True, blank=True)
+    body = models.TextField()
+    is_read = models.BooleanField(default=False, null=True)
+
+    created_date = models.DateTimeField(auto_now_add=True)
+    uuid = models.UUIDField(
+        default=uuid.uuid4,
+        primary_key=True,
+        editable=False,
+    )
+
+    def __str__(self):
+        return self.subject
+
+    class Meta:
+        ordering = ['is_read', '-created_date']

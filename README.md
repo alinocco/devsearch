@@ -23,9 +23,10 @@ The users can
 * Static Files
 * Connect Frontend Files and UIkit
 * User Registration & Authentification
-* Send a Welcome Email and Reset Password via Email
 * Search
 * Pagination
+* Send a Welcome Email 
+* Reset Password via Email
 * API on Django Rest Framework
 * Deployment
 

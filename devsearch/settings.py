@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'projects.apps.ProjectsConfig',
     'users.apps.UsersConfig',
 
+    'rest_framework',
+
     'django_cleanup.apps.CleanupConfig',
 ]
 

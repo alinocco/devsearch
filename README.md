@@ -40,6 +40,7 @@ The project is written on **Python: 3.8/Django: 4.0** with implementation of:
 * **Pillow: 9.1.1** - Python library for processing images
 * **Whitenoise: 6.2.0** - Serve our static files
 * **Django-Cleanup: 6.0.0** - Remove unused images, files etc.
+* **Django Rest Framework: 3.13.1** - Bulding REST API
 
 ## Setup
 1. Clone the repository by

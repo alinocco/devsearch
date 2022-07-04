@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
 
     'rest_framework',
+    'corsheaders',
 
     'django_cleanup.apps.CleanupConfig',
 ]
@@ -87,6 +88,8 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
+
     'django.middleware.security.SecurityMiddleware',
 
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -166,6 +169,12 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+
+# CORS allowed hosts
+# https://pypi.org/project/django-cors-headers/
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Sending Email

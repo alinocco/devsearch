@@ -2,30 +2,30 @@
 
 // TODO: 
 // Adding Tags
-let inputTag = document.getElementsByName('newtags')[0]
+// let inputTag = document.getElementsByName('newtags')[0]
 
-inputTag.addEventListener('keyup', (e) => {
-    if (e.code === 'Space' || e.code === 'Enter') {
-        let project = e.target.dataset.project
-        let tag = e.target.value.trim()
+// inputTag.addEventListener('keyup', (e) => {
+//     if (e.code === 'Space' || e.code === 'Enter') {
+//         let project = e.target.dataset.project
+//         let tag = e.target.value.trim()
 
-        if (tag.length != 0) {
-            fetch('http://127.0.0.1:8000/api/add-tag/', {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({'project': project, 'tag': tag})
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log("PROJECT:", project)
-                console.log("TAG:", tag)
+//         if (tag.length != 0) {
+//             fetch('http://127.0.0.1:8000/api/add-tag/', {
+//                 method: 'POST',
+//                 headers: {
+//                 'Content-Type': 'application/json'
+//                 },
+//                 body: JSON.stringify({'project': project, 'tag': tag})
+//             })
+//             .then(response => response.json())
+//             .then(data => {
+//                 console.log("PROJECT:", project)
+//                 console.log("TAG:", tag)
 
-            })
-        }
-    }
-})
+//             })
+//         }
+//     }
+// })
 
 
 // Removing Tags

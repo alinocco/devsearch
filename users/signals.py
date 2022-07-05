@@ -37,6 +37,10 @@ def updateUser(sender, instance, created, **kwargs):
     profile = instance
     user = profile.user
 
+    if not profile.image:
+        profile.image = "users/user-default.webp"
+        profile.save()
+
     if created == False:
         user.first_name = profile.name
         user.username = profile.username
@@ -46,5 +50,8 @@ def updateUser(sender, instance, created, **kwargs):
 
 @receiver(post_delete, sender=Profile)
 def deleteUser(sender, instance, **kwargs):
-    user = instance.user
-    user.delete()
+    try:
+        user = instance.user
+        user.delete()
+    except:
+        pass

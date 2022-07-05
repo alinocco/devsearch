@@ -38,6 +38,9 @@ class Profile(models.Model):
     def __str__(self):
         return str(self.user)
 
+    class Meta:
+        ordering = ['created_date']
+
 
 class Skill(models.Model):
     """

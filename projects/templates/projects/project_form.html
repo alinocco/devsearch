@@ -1,4 +1,6 @@
-{% extends 'main.html' %} {% block content %}
+{% extends 'main.html' %} 
+
+{% block content %}
 <!-- Main Section -->
 <main class="formPage my-xl">
   <div class="content-box">
@@ -11,10 +13,26 @@
         <!-- Input:Text -->
         {% for field in form %}
         <div class="form__field">
-          <label for="formInput#text">{{field.label|title}}</label>
+          <label for="formInput#text">{{field.label|title}}:</label>
           {{field}}
         </div>
         {% endfor %}
+
+        <div class="form__field">
+          <label for="formInput#text">Tags:</label>
+          <textarea class="input" name="newtags" placeholder="Add the tags here (separated by spaces).&#10;F.e.: HTML CSS JavaScript" data-project="{{project.uuid}}"></textarea>
+
+          <div class="form__field">
+            {% for tag in project.tags.all %}
+            <div class="project-tag tag tag--pill tag--main" >
+              {{tag.name}}
+              <button class="tag__delete" data-tag="{{tag.uuid}}" data-project="{{project.uuid}}">⨯</button>
+            </div>
+            {% endfor %}
+          </div>
+
+        </div>
+
         <input
           class="btn btn--sub btn--lg my-md"
           type="submit"

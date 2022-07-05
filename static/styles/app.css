@@ -856,3 +856,28 @@ img {
 
   z-index: 99999;
 }
+
+
+
+/*=======================
+  Project Tags Editing
+========================*/
+
+.project-tag {
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-tag > .tag__delete {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: transparent;
+  transition: var(--generic-transition);
+}
+
+.project-tag > .tag__delete:hover {
+  opacity: 0.85;
+}

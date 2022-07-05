@@ -118,7 +118,7 @@
                 </a>
               </td>
               <td class="settings__tableInfo">
-                <a href="single-project.html">{{project.title}}</a>
+                <a href="{% url 'project' project.uuid %}">{{project.title}}</a>
                 <p>{{project.description|truncatechars:150}}</p>
               </td>
               <td class="settings__tableActions">

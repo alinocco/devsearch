@@ -42,6 +42,7 @@ The project is written on **Python: 3.8/Django: 4.0** with implementation of:
 * **Django-Cleanup: 6.0.0** - Remove unused images, files etc.
 * **Django Rest Framework: 3.13.1** - Bulding REST API
 * **Django Rest Framework Simple JWT: 5.2.0** - JSON Web Tokens
+* **Django CORS Headers: 3.13.0** - Resolving Cross-origin resource sharing
 
 ## Setup
 1. Clone the repository by

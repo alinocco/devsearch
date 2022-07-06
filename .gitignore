@@ -92,3 +92,6 @@ settings/local.py
 
 # Database file
 db.sqlite3
+
+# Environment variables
+devsearch/.env

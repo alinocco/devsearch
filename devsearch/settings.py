@@ -33,7 +33,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = False
 
 # For Heroku
-ALLOWED_HOSTS = ['alinocco-devsearch.herokuapp.com']
+ALLOWED_HOSTS = ['alinocco-devsearch.herokuapp.com', '127.0.0.1']
 
 # For local
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1']
@@ -219,11 +219,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 # https://docs.djangoproject.com/en/4.0/topics/email/
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'devsearchsite@gmail.com'
-EMAIL_HOST_PASSWORD = 'usqrubynmxiryvof'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 
 # Static files (CSS, JavaScript, Images)

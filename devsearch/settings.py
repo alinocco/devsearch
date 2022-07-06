@@ -236,6 +236,9 @@ STATICFILES_DIRS = [
 # Collect static files for production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# Collect static files for production
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # User-generated files (Images)
 MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR / 'static/images'

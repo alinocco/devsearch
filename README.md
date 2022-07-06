@@ -43,6 +43,10 @@ The project is written on **Python: 3.8/Django: 4.0** with implementation of:
 * **Django Rest Framework: 3.13.1** - Bulding REST API
 * **Django Rest Framework Simple JWT: 5.2.0** - JSON Web Tokens
 * **Django CORS Headers: 3.13.0** - Resolving Cross-origin resource sharing
+* **Django-environ: 0.9.0** - Hide environment variables in .env
+* **Psycopg2: 2.9.3** - Connect our app to PosgreSQL Database
+* **Gunicorn: 20.1.0** - Deploy on server
+* **Django-heroku: 0.3.1** - Deploy on Heroku
 
 ## Setup
 1. Clone the repository by

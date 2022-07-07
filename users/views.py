@@ -46,7 +46,7 @@ def registerUser(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username
+            user.username = user.username.lower()
             user.save()
 
             messages.success(request, "You've been registered!")
@@ -66,7 +66,7 @@ def loginUser(request):
         return redirect('profiles')
 
     if request.method == 'POST':
-        username = request.POST['username']
+        username = request.POST['username'].lower()
         password = request.POST['password']
 
         try:
@@ -115,7 +115,9 @@ def editAccount(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid:
-            form.save()
+            profile = form.save(commit=False)
+            profile.username = profile.username.lower()
+            profile.save()
             return redirect('account')
 
     context = {'form': form}

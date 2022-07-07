@@ -13,9 +13,9 @@ class Profile(models.Model):
     """
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, null=True, blank=True)
-    name = models.CharField(max_length=255, null=True, blank=True)
-    email = models.EmailField(max_length=255, null=True, blank=True)
-    username = models.CharField(max_length=255, null=True, blank=True)
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    username = models.CharField(max_length=255)
 
     short_description = models.CharField(max_length=255, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)

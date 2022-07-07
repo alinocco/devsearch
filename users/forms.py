@@ -18,6 +18,7 @@ class CustomUserCreationForm(UserCreationForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs['required'] = 'required'
 
 
 class ProfileForm(ModelForm):

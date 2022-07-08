@@ -14,6 +14,7 @@ from datetime import timedelta
 from pathlib import Path
 import django_heroku
 import environ
+import os
 
 # Initialise environment variables
 env = environ.Env()
@@ -27,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', env('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -144,10 +145,10 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
+        'NAME': os.environ.get('DATABASE_NAME', env('DATABASE_NAME')),
+        'USER': os.environ.get('DATABASE_USER', env('DATABASE_USER')),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', env('DATABASE_PASSWORD')),
+        'HOST': os.environ.get('DATABASE_HOST', env('DATABASE_HOST')),
         'PORT': '5432',
     }
 }
@@ -219,10 +220,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 # https://docs.djangoproject.com/en/4.0/topics/email/
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST = os.environ.get('EMAIL_HOST', env('EMAIL_HOST'))
 EMAIL_PORT = 587
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', env('EMAIL_HOST_USER'))
+EMAIL_HOST_PASSWORD = os.environ.get(
+    'EMAIL_HOST_PASSWORD', env('EMAIL_HOST_PASSWORD'))
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 

@@ -3,11 +3,15 @@
 The platform for programmers to share their projects. 
 
 ## Table of contents
+* [Live Demo](#live-demo)
 * [General Info](#general-info)
 * [Functionality](#functionality)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Resources](#resources)
+
+## Live Demo
+https://alinocco-devsearch.herokuapp.com
 
 ## General Info
 The users can
